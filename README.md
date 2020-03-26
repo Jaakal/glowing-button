@@ -6,7 +6,7 @@ Link to live version - [Glowing button](https://no-time-to-die.herokuapp.com/)
 
 ## Screenshot
 
-![Screenshot of the webpage](https://github.com/Jaakal/glowing-button/blob/master/images/white.png)
+![Screenshot of the webpage](images/white.png)
 
 ## Getting Started
 
