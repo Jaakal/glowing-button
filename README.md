@@ -6,7 +6,7 @@ Link to live version - [Glowing button](https://no-time-to-die.herokuapp.com/)
 
 ## Screenshot
 
-![Screenshot of the webpage](images/white.png)
+![Screenshot of the webpage](images/white.gif)
 
 ## Getting Started
 
