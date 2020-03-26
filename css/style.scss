@@ -1,0 +1,302 @@
+/*
+ * Utility functions
+ */
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    
+    @return $number;
+}
+
+/*
+ * Button dimensions
+ */
+
+$width: 800px;
+$height: 300px;
+
+/*
+ * Button border dimensions
+ */
+
+// Border length percentages from the full dimensions
+$horizontal-border-percentage: 0.6;
+$vertical-border-percentage: 0.8;
+
+// Border lengths
+$horizontal-border: $width * $horizontal-border-percentage;
+$vertical-border: $height * $vertical-border-percentage;
+
+// Border thickness (1 or 2 pixels are visually looking good) 
+$border-thickness: 2px;
+
+/*
+ * Button text size
+ */
+
+$font-size: 50px;
+$letter-spacing: 15px;
+
+/*
+ * Button colors
+ */
+
+$text-color: #00a8ff;
+$text-glow-color: #00a8ff;
+$border-color: #00a8ff;
+
+/*
+ * Animation duration variables
+ */
+
+// Duration of animating one pixel
+$duration: 0.0005s;
+
+// Vertical border animation duration
+$vertical-border-duration: strip-unit($vertical-border) * $duration;
+
+// Horizontal border animation duration
+$horizontal-border-duration: $vertical-border-duration + strip-unit($width - $horizontal-border) * $duration;
+
+/*
+ * Button glowing border
+ */
+
+$glowing-border: 0 0 3px  $border-color,
+                 0 0 6px  $border-color,
+                 0 0 9px  $border-color,
+                 0 0 12px $border-color,
+                 0 0 15px $border-color,
+                 0 0 18px $border-color,
+           inset 0 0 3px  $border-color,
+           inset 0 0 6px  $border-color,
+           inset 0 0 9px  $border-color;
+
+@keyframes upper-horizontal-border {
+    @if $vertical-border < $width - $horizontal-border {
+        0% {
+            transform: translateX(0%) scaleX(1);
+        }
+
+        #{ strip-unit($vertical-border-duration / $horizontal-border-duration) * 100% } {
+            transform: translateX(0%) scaleX(($vertical-border + $horizontal-border) / $horizontal-border);
+        }
+        
+        #{ (strip-unit($vertical-border-duration / $horizontal-border-duration) + strip-unit($width - $horizontal-border - $vertical-border) * $duration / $horizontal-border-duration) * 100% } {
+            transform: translateX($width - $horizontal-border - $vertical-border) scaleX(($vertical-border + $horizontal-border) / $horizontal-border);
+        }
+        
+        100% {
+            transform: translateX($width - $horizontal-border) scaleX(1);
+        }
+    } @else {
+        0% {
+            transform: translateX(0%) scaleX(1);
+        }
+
+        #{ (strip-unit($width - $horizontal-border) * $duration / $horizontal-border-duration) * 100% } {
+            transform: translateX(0%) scaleX($width / $horizontal-border);
+        }
+        
+        #{ $vertical-border-duration / $horizontal-border-duration * 100% } {
+            transform: translateX(0%) scaleX($width / $horizontal-border);
+        }
+        
+        100% {
+            transform: translateX($width - $horizontal-border) scaleX(1);
+        }
+    }
+}
+
+@keyframes lower-horizontal-border {
+    @if $vertical-border < $width - $horizontal-border {
+        0% {
+            transform: translateX(0%) scaleX(1);
+        }
+
+        #{ strip-unit($vertical-border-duration / $horizontal-border-duration) * 100% } {
+            transform: translateX(0%) scaleX(($vertical-border + $horizontal-border) / $horizontal-border);
+        }
+        
+        #{ (strip-unit($vertical-border-duration / $horizontal-border-duration) + strip-unit($width - $horizontal-border - $vertical-border) * $duration / $horizontal-border-duration) * 100% } {
+            transform: translateX(-($width - $horizontal-border - $vertical-border)) scaleX(($vertical-border + $horizontal-border) / $horizontal-border);
+        }
+        
+        100% {
+            transform: translateX(-($width - $horizontal-border)) scaleX(1);
+        }
+    } @else {
+        0% {
+            transform: translateX(0%) scaleX(1);
+        }
+
+        #{ (strip-unit($width - $horizontal-border) * $duration / $horizontal-border-duration) * 100% } {
+            transform: translateX(0%) scaleX($width / $horizontal-border);
+        }
+        
+        #{ $vertical-border-duration / $horizontal-border-duration * 100% } {
+            transform: translateX(0%) scaleX($width / $horizontal-border);
+        }
+        
+        100% {
+            transform: translateX(-($width - $horizontal-border)) scaleX(1);
+        }
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    // background-color: #010b13;
+    background-color: white;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: $width;
+    height: $height;
+    background: none !important;
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+    font-size: $font-size;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing;
+    color: $text-color;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button:focus-within {
+    outline: none;
+}
+
+button span:nth-of-type(n + 7) {
+    text-shadow: 0 0 10px  $text-glow-color,
+                 0 0 20px  $text-glow-color,
+                 0 0 40px  $text-glow-color,
+                 0 0 80px  $text-glow-color,
+                 0 0 120px $text-glow-color,
+                 0 0 160px $text-glow-color;
+    will-change: text-shadow;
+}
+
+button:hover span:nth-of-type(n + 7) {
+    text-shadow: 0 0 10px  $text-glow-color,
+                 0 0 10px  $text-glow-color,
+                 0 0 20px  $text-glow-color,
+                 0 0 20px  $text-glow-color,
+                 0 0 40px  $text-glow-color,
+                 0 0 80px  $text-glow-color,
+                 0 0 120px $text-glow-color,
+                 0 0 160px $text-glow-color;
+}
+
+button span:last-of-type {
+    letter-spacing: 0;
+}
+
+button span:nth-of-type(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $border-thickness;
+    height: $vertical-border;
+    box-shadow: $glowing-border;
+    transform-origin: top;
+    will-change: transform;
+}
+
+button:hover span:nth-of-type(1) {
+    transform: scaleY(0);
+    transition: transform $vertical-border-duration linear; 
+}
+
+button span:nth-of-type(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $horizontal-border;
+    height: $border-thickness;
+    box-shadow: $glowing-border;
+    transform-origin: left;
+    will-change: transform;
+}
+
+button:hover span:nth-of-type(2) {
+    animation: upper-horizontal-border $horizontal-border-duration linear forwards;
+}
+
+button span:nth-of-type(3) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $border-thickness;
+    height: $vertical-border;
+    box-shadow: $glowing-border;
+    transform-origin: top;
+    transform: scaleY(0);
+    will-change: transform;
+}
+
+button:hover span:nth-of-type(3) {
+    transform: scaleY(1);
+    transition: transform $vertical-border-duration linear strip-unit($width - $horizontal-border) * $duration; 
+}
+
+button span:nth-of-type(4) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: $border-thickness;
+    height: $vertical-border;
+    box-shadow: $glowing-border;
+    transform-origin: bottom;
+    will-change: transform;
+}
+
+button:hover span:nth-of-type(4) {
+    transform: scaleY(0);
+    transition: transform $vertical-border-duration linear; 
+}
+
+button span:nth-of-type(5) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: $horizontal-border;
+    height: $border-thickness;
+    box-shadow: $glowing-border;
+    transform-origin: right;
+    will-change: transform;
+}
+
+button:hover span:nth-of-type(5) {
+    animation: lower-horizontal-border $horizontal-border-duration linear forwards;
+}
+
+button span:nth-of-type(6) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: $border-thickness;
+    height: $vertical-border;
+    box-shadow: $glowing-border;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    will-change: transform;
+}
+
+button:hover span:nth-of-type(6) {
+    transform: scaleY(1);
+    transition: transform $vertical-border-duration linear strip-unit($width - $horizontal-border) * $duration; 
+}

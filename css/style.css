@@ -1,0 +1,282 @@
+/*
+ * Utility functions
+ */
+/*
+ * Button dimensions
+ */
+/*
+ * Button border dimensions
+ */
+/*
+ * Button text size
+ */
+/*
+ * Button colors
+ */
+/*
+ * Animation duration variables
+ */
+/*
+ * Button glowing border
+ */
+@-webkit-keyframes upper-horizontal-border {
+  0% {
+    -webkit-transform: translateX(0%) scaleX(1);
+            transform: translateX(0%) scaleX(1);
+  }
+  42.85714% {
+    -webkit-transform: translateX(0%) scaleX(1.5);
+            transform: translateX(0%) scaleX(1.5);
+  }
+  57.14286% {
+    -webkit-transform: translateX(80px) scaleX(1.5);
+            transform: translateX(80px) scaleX(1.5);
+  }
+  100% {
+    -webkit-transform: translateX(320px) scaleX(1);
+            transform: translateX(320px) scaleX(1);
+  }
+}
+@keyframes upper-horizontal-border {
+  0% {
+    -webkit-transform: translateX(0%) scaleX(1);
+            transform: translateX(0%) scaleX(1);
+  }
+  42.85714% {
+    -webkit-transform: translateX(0%) scaleX(1.5);
+            transform: translateX(0%) scaleX(1.5);
+  }
+  57.14286% {
+    -webkit-transform: translateX(80px) scaleX(1.5);
+            transform: translateX(80px) scaleX(1.5);
+  }
+  100% {
+    -webkit-transform: translateX(320px) scaleX(1);
+            transform: translateX(320px) scaleX(1);
+  }
+}
+
+@-webkit-keyframes lower-horizontal-border {
+  0% {
+    -webkit-transform: translateX(0%) scaleX(1);
+            transform: translateX(0%) scaleX(1);
+  }
+  42.85714% {
+    -webkit-transform: translateX(0%) scaleX(1.5);
+            transform: translateX(0%) scaleX(1.5);
+  }
+  57.14286% {
+    -webkit-transform: translateX(-80px) scaleX(1.5);
+            transform: translateX(-80px) scaleX(1.5);
+  }
+  100% {
+    -webkit-transform: translateX(-320px) scaleX(1);
+            transform: translateX(-320px) scaleX(1);
+  }
+}
+
+@keyframes lower-horizontal-border {
+  0% {
+    -webkit-transform: translateX(0%) scaleX(1);
+            transform: translateX(0%) scaleX(1);
+  }
+  42.85714% {
+    -webkit-transform: translateX(0%) scaleX(1.5);
+            transform: translateX(0%) scaleX(1.5);
+  }
+  57.14286% {
+    -webkit-transform: translateX(-80px) scaleX(1.5);
+            transform: translateX(-80px) scaleX(1.5);
+  }
+  100% {
+    -webkit-transform: translateX(-320px) scaleX(1);
+            transform: translateX(-320px) scaleX(1);
+  }
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 800px;
+  height: 300px;
+  background: none !important;
+  border: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 50px;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  color: #00a8ff;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus-within {
+  outline: none;
+}
+
+button span:nth-of-type(n + 7) {
+  text-shadow: 0 0 10px #00a8ff, 0 0 20px #00a8ff, 0 0 40px #00a8ff, 0 0 80px #00a8ff, 0 0 120px #00a8ff, 0 0 160px #00a8ff;
+  will-change: text-shadow;
+}
+
+button:hover span:nth-of-type(n + 7) {
+  text-shadow: 0 0 10px #00a8ff, 0 0 10px #00a8ff, 0 0 20px #00a8ff, 0 0 20px #00a8ff, 0 0 40px #00a8ff, 0 0 80px #00a8ff, 0 0 120px #00a8ff, 0 0 160px #00a8ff;
+}
+
+button span:last-of-type {
+  letter-spacing: 0;
+}
+
+button span:nth-of-type(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 240px;
+  -webkit-box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+          box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  will-change: transform;
+}
+
+button:hover span:nth-of-type(1) {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transition: -webkit-transform 0.12s linear;
+  transition: -webkit-transform 0.12s linear;
+  transition: transform 0.12s linear;
+  transition: transform 0.12s linear, -webkit-transform 0.12s linear;
+}
+
+button span:nth-of-type(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 480px;
+  height: 2px;
+  -webkit-box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+          box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  will-change: transform;
+}
+
+button:hover span:nth-of-type(2) {
+  -webkit-animation: upper-horizontal-border 0.28s linear forwards;
+          animation: upper-horizontal-border 0.28s linear forwards;
+}
+
+button span:nth-of-type(3) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 240px;
+  -webkit-box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+          box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  will-change: transform;
+}
+
+button:hover span:nth-of-type(3) {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transition: -webkit-transform 0.12s linear 0.16s;
+  transition: -webkit-transform 0.12s linear 0.16s;
+  transition: transform 0.12s linear 0.16s;
+  transition: transform 0.12s linear 0.16s, -webkit-transform 0.12s linear 0.16s;
+}
+
+button span:nth-of-type(4) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  height: 240px;
+  -webkit-box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+          box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  will-change: transform;
+}
+
+button:hover span:nth-of-type(4) {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transition: -webkit-transform 0.12s linear;
+  transition: -webkit-transform 0.12s linear;
+  transition: transform 0.12s linear;
+  transition: transform 0.12s linear, -webkit-transform 0.12s linear;
+}
+
+button span:nth-of-type(5) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 480px;
+  height: 2px;
+  -webkit-box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+          box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  will-change: transform;
+}
+
+button:hover span:nth-of-type(5) {
+  -webkit-animation: lower-horizontal-border 0.28s linear forwards;
+          animation: lower-horizontal-border 0.28s linear forwards;
+}
+
+button span:nth-of-type(6) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 240px;
+  -webkit-box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+          box-shadow: 0 0 3px #00a8ff, 0 0 6px #00a8ff, 0 0 9px #00a8ff, 0 0 12px #00a8ff, 0 0 15px #00a8ff, 0 0 18px #00a8ff, inset 0 0 3px #00a8ff, inset 0 0 6px #00a8ff, inset 0 0 9px #00a8ff;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  will-change: transform;
+}
+
+button:hover span:nth-of-type(6) {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transition: -webkit-transform 0.12s linear 0.16s;
+  transition: -webkit-transform 0.12s linear 0.16s;
+  transition: transform 0.12s linear 0.16s;
+  transition: transform 0.12s linear 0.16s, -webkit-transform 0.12s linear 0.16s;
+}
+/*# sourceMappingURL=style.css.map */
