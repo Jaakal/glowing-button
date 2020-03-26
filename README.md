@@ -2,7 +2,7 @@
 
 In this project I created a glowing button with animated borders, using only CSS animations. I animated attributes, which are cost effective performance-wise. My understanding of CSS animations bases on the article [Smooth as Butter: Achieving 60 FPS Animations with CSS3](https://medium.com/outsystems-experts/how-to-achieve-60-fps-animations-with-css3-db7b98610108). I made it to be dynamic, that you can customize button visuals, set the animation speed and it generates the CSS from the SCSS.
 
-Link to live version - [Glowing button](https://no-time-to-die.herokuapp.com/)
+Link to live version - [Glowing button](https://jaakal.github.io/glowing-button/)
 
 ## Screenshot
 
@@ -14,11 +14,11 @@ Clone the repository into your local computer.
 
 ### Prerequisites
 
-So you'll need some code editor which will be able to preprocess SASS, I use VS Code (link in the "Built With" section). Then you can customize your button outlook to the desired result, set the animation related variables and it generates the necessary CSS for you. Result is visible in any browser, e.g. Chrome, Firefox etc. Then you can implement the code in your own project.
+You'll need some code editor which will be able to preprocess SASS, I use the VS Code (link in the "Built With" section). Then you can customize your button outlook to the desired result, set the animation related variables and it generates the necessary CSS for you. Result is visible in any browser, e.g. Chrome, Firefox etc. Then you can implement the code in your own project.
 
 ### Usage
 
-Open project in your code editor, customize the `style.scss` file for your own needs, add the button text in the `index.html` after the first six empty spans. Every letter has to be in its separate span block. Open `index.html` file in your browser.
+Open the project in your code editor, customize the `style.scss` file for your own needs, add the button text in the `index.html` after the first six empty spans. Every letter has to be in its separate span block. Open `index.html` file in your browser.
 
 ## Built With
 
